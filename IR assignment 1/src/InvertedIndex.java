@@ -52,12 +52,13 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
     	        	 documentNumberList.add(documentNumber);
     	         }
     	      }
-    	  String DocumentNumbers = "";
+
+    	  StringBuilder numbers = new StringBuilder();
     	  for(int i = 0; i < documentNumberList.size(); i++)
     	  {
-    		  DocumentNumbers += documentNumberList.get(i);
+        	  numbers.append(documentNumberList.get(i) + " ");
     	  }
-    	   context.write(key,new Text(DocumentNumbers));
+    	   context.write(key,new Text(numbers.toString()));
        }
     }
            
